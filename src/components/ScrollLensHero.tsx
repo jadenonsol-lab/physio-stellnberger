@@ -53,11 +53,15 @@ export function ScrollLensHero({ onReady }: Props) {
     const placed = coverRect(source, w, h)
     ctx.drawImage(source, placed.dx, placed.dy, placed.dw, placed.dh)
 
+    // Paper wash outside the lens so the magnifier reads as the hero object
+    ctx.fillStyle = 'rgba(238, 241, 240, 0.42)'
+    ctx.fillRect(0, 0, w, h)
+
     const { x, y, size } = lensStateRef.current
     const radius = Math.min(w, h) * size * 0.5
     const cx = x * w
     const cy = y * h
-    const zoom = 1.55 + progress * 0.35
+    const zoom = 1.9 + progress * 0.4
 
     ctx.save()
     ctx.beginPath()
@@ -73,10 +77,10 @@ export function ScrollLensHero({ onReady }: Props) {
     const zy = cy - (cy - placed.dy) * zoom
     ctx.drawImage(source, zx, zy, zw, zh)
 
-    const grad = ctx.createRadialGradient(cx, cy, radius * 0.2, cx, cy, radius)
-    grad.addColorStop(0, 'rgba(255,255,255,0.08)')
-    grad.addColorStop(0.7, 'rgba(255,255,255,0)')
-    grad.addColorStop(1, 'rgba(26,34,31,0.12)')
+    const grad = ctx.createRadialGradient(cx, cy, radius * 0.15, cx, cy, radius)
+    grad.addColorStop(0, 'rgba(255,255,255,0.06)')
+    grad.addColorStop(0.75, 'rgba(255,255,255,0)')
+    grad.addColorStop(1, 'rgba(26,34,31,0.16)')
     ctx.fillStyle = grad
     ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2)
     ctx.restore()
@@ -174,8 +178,8 @@ export function ScrollLensHero({ onReady }: Props) {
         return
       }
 
-      lensStateRef.current = { x: 0.58, y: 0.46, size: 0.28 }
-      syncLensChrome(58, 46, 'min(42vw, 18rem)')
+      lensStateRef.current = { x: 0.62, y: 0.42, size: 0.34 }
+      syncLensChrome(62, 42, 'min(46vw, 20rem)')
 
       ScrollTrigger.create({
         trigger: section,
@@ -186,9 +190,9 @@ export function ScrollLensHero({ onReady }: Props) {
           const p = self.progress
           progressRef.current = p
 
-          const size = gsap.utils.interpolate(0.28, 0.92, Math.min(1, p * 1.12))
-          const lx = gsap.utils.interpolate(0.58, 0.5, Math.min(1, p * 1.2))
-          const ly = gsap.utils.interpolate(0.46, 0.48, Math.min(1, p * 1.1))
+          const size = gsap.utils.interpolate(0.34, 0.95, Math.min(1, p * 1.12))
+          const lx = gsap.utils.interpolate(0.62, 0.5, Math.min(1, p * 1.2))
+          const ly = gsap.utils.interpolate(0.42, 0.48, Math.min(1, p * 1.1))
           lensStateRef.current = { x: lx, y: ly, size }
 
           const sizeCss = `min(${Math.round(size * 118)}vw, ${Math.round(size * 58)}rem)`
@@ -241,9 +245,9 @@ export function ScrollLensHero({ onReady }: Props) {
             aria-hidden="true"
             style={
               {
-                '--lx': '58%',
-                '--ly': '46%',
-                '--lsize': 'min(42vw, 18rem)',
+                '--lx': '62%',
+                '--ly': '42%',
+                '--lsize': 'min(46vw, 20rem)',
               } as CSSProperties
             }
           >
