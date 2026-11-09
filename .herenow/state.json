@@ -1,0 +1,12 @@
+{
+  "publishes": {
+    "hallowed-lodge-z94a": {
+      "siteUrl": "https://hallowed-lodge-z94a.here.now/",
+      "versionId": "01M7129NPQRYHH4AA10EFMW0GE",
+      "path": "/agent/demo/dist",
+      "claimToken": "NoqCS6FqWaKGbFtW",
+      "claimUrl": "https://here.now/c/NoqCS6FqWaKGbFtW",
+      "expiresAt": "2026-11-10T21:09:16.630Z"
+    }
+  }
+}
