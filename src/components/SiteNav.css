@@ -55,6 +55,17 @@
   display: none;
 }
 
+.site-nav__brand,
+.site-nav__links {
+  color: #f4fffe;
+}
+
+.site-nav__mark {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #f4fffe;
+}
+
 .site-nav__cta {
   display: inline-flex;
   align-items: center;
@@ -62,8 +73,8 @@
   min-height: 2.55rem;
   padding: 0.55rem 1.05rem;
   border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
+  background: #12383c;
+  color: #f4fffe;
   transition: transform 180ms var(--ease-out), background 180ms var(--ease-out);
 }
 

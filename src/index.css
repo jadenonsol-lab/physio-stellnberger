@@ -1,13 +1,13 @@
 :root {
-  --paper: #eef1f0;
-  --paper-deep: #e4e9e7;
-  --ink: #1a221f;
-  --ink-soft: #3a4541;
-  --mist: #d7e0dc;
-  --sage: #4a6b5c;
-  --sage-deep: #355246;
-  --lens-rim: rgba(255, 255, 255, 0.72);
-  --lens-glow: rgba(74, 107, 92, 0.18);
+  --paper: #e8f7f8;
+  --paper-deep: #d3eef1;
+  --ink: #12383c;
+  --ink-soft: #35575c;
+  --mist: #9adfe6;
+  --sage: #00a8b8;
+  --sage-deep: #0d6f7a;
+  --teal: #00a8b8;
+  --teal-deep: #007f8c;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --font-display: 'Syne', sans-serif;
   --font-body: 'Outfit', sans-serif;
@@ -42,10 +42,7 @@ html.lenis body {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(120% 80% at 80% -10%, #f7faf8 0%, transparent 55%),
-    radial-gradient(90% 60% at -10% 20%, #dfe8e3 0%, transparent 50%),
-    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  background: linear-gradient(180deg, #00a8b8 0%, #00a8b8 48vh, var(--paper) 48vh, var(--paper-deep) 100%);
   color: var(--ink);
 }
 
@@ -66,7 +63,52 @@ button {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--sage) 35%, white);
+  background: color-mix(in srgb, var(--teal) 35%, white);
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #f4fffe;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform 180ms var(--ease-out), background 180ms var(--ease-out);
+}
+
+.cta-primary:hover {
+  background: var(--sage-deep);
+}
+
+.cta-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  background: color-mix(in srgb, white 55%, transparent);
+  color: var(--ink);
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: transform 180ms var(--ease-out), border-color 180ms var(--ease-out);
+}
+
+.cta-ghost:hover {
+  border-color: color-mix(in srgb, var(--ink) 40%, transparent);
+}
+
+.cta-ghost:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 @media (prefers-reduced-motion: reduce) {

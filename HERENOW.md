@@ -4,4 +4,5 @@
 - **claimUrl:** `https://here.now/c/NoqCS6FqWaKGbFtW`
 - **expiresAt:** `2026-11-10T21:09:16.630Z`
 
-Anonymous 24h. Open claimUrl, sign in with your email → site becomes permanent on your account.
+Anonymous 24h from first create. Open claimUrl → sign in with email → permanent.
+Latest version: `01M72PQD3DJGANZ324DHPVPMZ6`

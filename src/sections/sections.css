@@ -27,9 +27,10 @@
 
 .section--services {
   background:
-    linear-gradient(180deg, transparent, rgba(215, 224, 220, 0.45)),
+    linear-gradient(180deg, #00a8b8 0%, #7ed7df 18%, var(--paper) 42%),
     var(--paper);
-  border-top: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+  border-top: 0;
+  padding-top: clamp(5.5rem, 14vh, 8rem);
 }
 
 .service-list {
